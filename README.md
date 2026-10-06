@@ -1,0 +1,4 @@
+    • Project Title & Overview: What is it? (A 5-round JavaScript Rock Paper Scissors game with a shinobi spin).
+    • Features: The 5-round loop, custom win/loss/tie dialogue ("chakra flow"), and console-based mechanics.
+    • Built With: JavaScript, HTML, Git/GitHub, and Linux terminal workflow.
+    • What I Learned: Handling user input logic, scope, conditionals, and battling Git authentication loop. This was part of the rock, paper, scissors game from The Odin Project, but I ended up creating my own version, because during step 4, I realised the predetermined way did not feel right for me, and I could not commit to something generic, and without a soul
