@@ -2,10 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rock Paper Scissors</title>
+  <title>Rock Paper Scissors - Shinobi Edition</title>
+  <link rel="stylesheet" href="style.css"> <!-- Optional for styling later -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Rock Paper Scissors</h1>
+  <h1>Rock Paper Scissors: Shinobi Edition</h1>
+  
+  <!-- Buttons for Player Choices -->
+  <div id="button-container">
+    <button id="rock">Rock (Rokku)</button>
+    <button id="paper">Paper (Kami)</button>
+    <button id="scissors">Scissors (Hasami)</button>
+  </div>
+
+  <!-- Scoreboard -->
+  <div id="scoreboard">
+    <p>Player: <span id="human-score">0</span></p>
+    <p>Computer: <span id="computer-score">0</span></p>
+  </div>
+
+  <!-- Results and Narration Display -->
+  <div id="results-container">
+    <p id="round-result">Make your choice to begin the battle, dattebayo!</p>
+  </div>
 </body>
 </html>

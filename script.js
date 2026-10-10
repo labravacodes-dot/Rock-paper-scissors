@@ -1,7 +1,16 @@
 // ==========================================
-// Step 1: Project Setup & Greeting
+// Step 1: Global State & Greeting
 // ==========================================
 console.log("hello, shinobi, dattebayo!");
+
+let humanScore = 0;
+let computerScore = 0;
+const winningScore = 5;
+
+// DOM Elements
+const humanScoreDisplay = document.querySelector("#human-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+const roundResultDisplay = document.querySelector("#round-result");
 
 // ==========================================
 // Step 2: Get Computer Choice
@@ -13,80 +22,77 @@ function getComputerChoice() {
 }
 
 // ==========================================
-// Step 3: Get Human Choice
+// Step 3: Play a Single Round
 // ==========================================
-function getHumanChoice(choiceOverride) {
-    if (choiceOverride) {
-        return choiceOverride;
-    }
-    let choice = prompt("Enter your desired jutsu (rock, paper, or scissors):");
-    return choice ? choice : "rock";
-}
-
-// ==========================================
-// Step 6: Play the Full 5-Round Game Tournament
-// ==========================================
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound(humanChoice, computerChoice) {
-        humanChoice = humanChoice.toLowerCase();
-
-        if (humanChoice === "rock") {
-            console.log("Ninpo: Rokku no Jutsu!");
-        } else if (humanChoice === "paper") {
-            console.log("Ninpo: Kami no Jutsu!");
-        } else if (humanChoice === "scissors") {
-            console.log("Ninpo: Hasami no Jutsu!");
-        } else {
-            console.log("Ninpo: Mysterious unknown hand sign...?");
-        }
-
-        // Tie condition with chakra narrative
-        if (humanChoice === computerChoice) {
-            console.log("An equilibrium of a battle, just like your current chakra flow! A bow for a worthy opponent. I will be looking forwards to a rematch. Next time, I will definitely win, dattebayo!");
-        } 
-        // Human winning conditions with your custom rivalry flair
-        else if (
-            (humanChoice === "rock" && computerChoice === "scissors") ||
-            (humanChoice === "paper" && computerChoice === "rock") ||
-            (humanChoice === "scissors" && computerChoice === "paper")
-        ) {
-            humanScore++;
-            console.log(`Thumbs up for your win! I admit defeat...for now. Your ${humanChoice} triumphs over ${computerChoice}! I will definitely win next time, dattebayo. (Score - You: ${humanScore} | Bot: ${computerScore})`);
-        } 
-        // Computer winning conditions with your custom encouragement flair
-        else {
-            computerScore++;
-            console.log(`Too bad, you lost! The computer's ${computerChoice} defeats your ${humanChoice}. Hopefully you will do better next time. Do not give up! That is the road to become a shinobi! (Score - You: ${humanScore} | Bot: ${computerScore})`);
-        }
+function playRound(humanChoice) {
+    // If someone already reached 5 points, freeze the game
+    if (humanScore >= winningScore || computerScore >= winningScore) {
+        return;
     }
 
-    // Play 5 rounds using a loop
-    for (let round = 1; round <= 5; round++) {
-        console.log(`\n--- Round ${round} of 5 ---`);
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
+    const computerChoice = getComputerChoice();
+    humanChoice = humanChoice.toLowerCase();
 
-    // Tournament Results
-    console.log("\n==========================================");
-    console.log("         FINAL TOURNAMENT RESULTS          ");
-    console.log("==========================================");
-    console.log(`Final Score -> You: ${humanScore} | Computer: ${computerScore}`);
-
-    if (humanScore > computerScore) {
-        console.log("Victory! The Hokage is proud of you! You have been awarded your headband and are now a true shinobi!");
-    } else if (computerScore > humanScore) {
-        console.log("Defeat... Time to head to the secluded waterfall to train under harsh conditions, commune with your inner self, and unlock Sage Mode!");
+    // Shinobi Jutsu logs (keeping your console logs if you want them!)
+    if (humanChoice === "rock") {
+        console.log("Ninpo: Rokku no Jutsu!");
+    } else if (humanChoice === "paper") {
+        console.log("Ninpo: Kami no Jutsu!");
+    } else if (humanChoice === "scissors") {
+        console.log("Ninpo: Hasami no Jutsu!");
     } else {
-        console.log("An equilibrium of a battle, just like your current chakra flow! A bow for a worthy opponent. I will be looking forwards to a rematch. Next time, I will definitely win, dattebayo!");
+        console.log("Ninpo: Mysterious unknown hand sign...?");
+    }
+
+    let message = "";
+
+    // Tie condition
+    if (humanChoice === computerChoice) {
+        message = "An equilibrium of a battle, just like your current chakra flow! A bow for a worthy opponent. Next time, I will definitely win, dattebayo!";
+    } 
+    // Human winning conditions
+    else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        humanScore++;
+        message = `Thumbs up for your win! I admit defeat...for now. Your ${humanChoice} triumphs over ${computerChoice}!`;
+    } 
+    // Computer winning conditions
+    else {
+        computerScore++;
+        message = `Too bad, you lost! The computer's ${computerChoice} defeats your ${humanChoice}. Do not give up! That is the road to become a shinobi!`;
+    }
+
+    // Update DOM elements on the webpage
+    humanScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
+    roundResultDisplay.textContent = message;
+
+    // Check for 5 points win condition
+    if (humanScore === winningScore) {
+        roundResultDisplay.textContent = `🎉 You reached 5 points first! Ultimate Victory! You are the new Hokage, dattebayo!`;
+    } else if (computerScore === winningScore) {
+        roundResultDisplay.textContent = `💀 The computer reached 5 points first. Defeat! Time to train harder at the waterfall!`;
     }
 }
 
 // ==========================================
-// Execution: Start the Tournament
+// Step 4: Event Listeners for UI Buttons
 // ==========================================
-playGame();
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
+rockBtn.addEventListener("click", () => {
+    playRound("rock");
+});
+
+paperBtn.addEventListener("click", () => {
+    playRound("paper");
+});
+
+scissorsBtn.addEventListener("click", () => {
+    playRound("scissors");
+});
