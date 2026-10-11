@@ -115,19 +115,3 @@ const scissorsBtn = document.querySelector("#scissors");
 if (rockBtn) rockBtn.addEventListener("click", () => playRound("rock"));
 if (paperBtn) paperBtn.addEventListener("click", () => playRound("paper"));
 if (scissorsBtn) scissorsBtn.addEventListener("click", () => playRound("scissors"));
-// Background Music Toggle Logic
-const backgroundMusic = document.getElementById("bgm");
-const musicBtn = document.querySelector("#music-btn");
-
-if (musicBtn && backgroundMusic) {
-    musicBtn.addEventListener("click", () => {
-        if (backgroundMusic.paused) {
-            backgroundMusic.play().then(() => {
-                musicBtn.textContent = "🔊 Mute Music";
-            }).catch(error => console.log("Audio play error:", error));
-        } else {
-            backgroundMusic.pause();
-            musicBtn.textContent = "🎵 Start Music";
-        }
-    });
-}
