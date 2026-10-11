@@ -46,3 +46,8 @@ What started as basic console logging evolved into a fully realized interactive 
 - **Media Management & Browser Policies**: Mastered handling browser audio restriction policies and integrated programmatic play/pause toggling.
 - **Debugging Real Errors**: Grew comfortable reading browser console errors (like resolving duplicate `const` declarations) to keep code functional.
 - **Version Control & Deployment**: Successfully navigated Git authentication loops, SSH setup, and pushed a production-ready application live.
+--
+## 🎵 Credits & Assets
+
+- **Background Music ("SIGN")**: Originally performed by **FLOW** (Naruto Shippuden Opening 6  SIGN). Used under artistic appreciation for the shinobi universe. Please keep in mind, that this project technically falls under the category of fanart. 
+- **Visuals & Background Art**: The Genjutsu crimson moon background (`shinobi.jpg`) is currently an AI-generated placeholder to establish the atmospheric vision of the game. It serves as a visual placeholder while I work on creating and replacing it with my own custom-drawn illustrations in a future update!
