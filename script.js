@@ -3,7 +3,7 @@
 // ==========================================
 console.log("hello, shinobi, dattebayo!");
 
-// 1. Grab audio element and control variables at the top of the file
+// Grab audio element and control variables at the top of the file
 const backgroundMusic = document.getElementById("bgm");
 if (backgroundMusic) {
     backgroundMusic.volume = 0.3; // Set volume (30% is a nice background level)
@@ -20,6 +20,7 @@ const computerScoreDisplay = document.querySelector("#computer-score");
 const roundResultDisplay = document.querySelector("#round-result") || document.querySelector("#results");
 const playerChoiceDisplay = document.querySelector("#player-choice-display");
 const computerChoiceDisplay = document.querySelector("#computer-choice-display");
+const musicBtn = document.querySelector("#music-btn");
 
 // ==========================================
 // Step 2: Get Computer Choice
@@ -34,9 +35,11 @@ function getComputerChoice() {
 // Step 3: Play a Single Round
 // ==========================================
 function playRound(humanChoice) {
-    // Start background music on the first move
+    // Start background music on the first move and sync button label
     if (!musicStarted && backgroundMusic) {
-        backgroundMusic.play().catch(error => console.log("Audio play error:", error));
+        backgroundMusic.play().then(() => {
+            if (musicBtn) musicBtn.textContent = "🔊 Pause Music";
+        }).catch(error => console.log("Audio play error:", error));
         musicStarted = true;
     }
 
@@ -108,10 +111,22 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
-// ==========================================
-// Step 5: Event Listeners for Background Music Toggle
-// ==========================================
-
 if (rockBtn) rockBtn.addEventListener("click", () => playRound("rock"));
 if (paperBtn) paperBtn.addEventListener("click", () => playRound("paper"));
 if (scissorsBtn) scissorsBtn.addEventListener("click", () => playRound("scissors"));
+
+// ==========================================
+// Step 5: Event Listeners for Background Music Toggle
+// ==========================================
+if (musicBtn && backgroundMusic) {
+    musicBtn.addEventListener("click", () => {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play().then(() => {
+                musicBtn.textContent = "🔊 Pause Music";
+            }).catch(error => console.log("Audio play error:", error));
+        } else {
+            backgroundMusic.pause();
+            musicBtn.textContent = "🎵 Start Music";
+        }
+    });
+}
