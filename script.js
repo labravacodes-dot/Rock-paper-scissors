@@ -3,14 +3,23 @@
 // ==========================================
 console.log("hello, shinobi, dattebayo!");
 
+// 1. Grab audio element and control variables at the top of the file
+const backgroundMusic = document.getElementById("bgm");
+if (backgroundMusic) {
+    backgroundMusic.volume = 0.3; // Set volume (30% is a nice background level)
+}
+let musicStarted = false;
+
 let humanScore = 0;
 let computerScore = 0;
 const winningScore = 5;
 
 // DOM Elements
-const humanScoreDisplay = document.querySelector("#human-score");
+const humanScoreDisplay = document.querySelector("#human-score") || document.querySelector("#player-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
-const roundResultDisplay = document.querySelector("#round-result");
+const roundResultDisplay = document.querySelector("#round-result") || document.querySelector("#results");
+const playerChoiceDisplay = document.querySelector("#player-choice-display");
+const computerChoiceDisplay = document.querySelector("#computer-choice-display");
 
 // ==========================================
 // Step 2: Get Computer Choice
@@ -25,6 +34,12 @@ function getComputerChoice() {
 // Step 3: Play a Single Round
 // ==========================================
 function playRound(humanChoice) {
+    // Start background music on the first move
+    if (!musicStarted && backgroundMusic) {
+        backgroundMusic.play().catch(error => console.log("Audio play error:", error));
+        musicStarted = true;
+    }
+
     // If someone already reached 5 points, freeze the game
     if (humanScore >= winningScore || computerScore >= winningScore) {
         return;
@@ -33,7 +48,11 @@ function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
     humanChoice = humanChoice.toLowerCase();
 
-    // Shinobi Jutsu logs (keeping your console logs if you want them!)
+    // Update Choice Displays in Battle Cards
+    if (playerChoiceDisplay) playerChoiceDisplay.textContent = humanChoice;
+    if (computerChoiceDisplay) computerChoiceDisplay.textContent = computerChoice;
+
+    // Shinobi Jutsu logs
     if (humanChoice === "rock") {
         console.log("Ninpo: Rokku no Jutsu!");
     } else if (humanChoice === "paper") {
@@ -62,19 +81,23 @@ function playRound(humanChoice) {
     // Computer winning conditions
     else {
         computerScore++;
-        message = `Too bad, you lost! The computer's ${computerChoice} defeats your ${humanChoice}. Do not give up! That is the road to become a shinobi!`;
+        message = `Too bad, you lost! Your Next Door Sparring Partner That Always Comes Back Asking For More's ${computerChoice} defeats your ${humanChoice}. Do not give up! That is the Road to Ninja! 🤌🥷`;
     }
 
-    // Update DOM elements on the webpage
-    humanScoreDisplay.textContent = humanScore;
-    computerScoreDisplay.textContent = computerScore;
-    roundResultDisplay.textContent = message;
+    // Safely update DOM elements on the webpage
+    if (humanScoreDisplay) humanScoreDisplay.textContent = humanScore;
+    if (computerScoreDisplay) computerScoreDisplay.textContent = computerScore;
+    if (roundResultDisplay) roundResultDisplay.textContent = message;
 
     // Check for 5 points win condition
     if (humanScore === winningScore) {
-        roundResultDisplay.textContent = `🎉 You reached 5 points first! Ultimate Victory! You are the new Hokage, dattebayo!`;
+        if (roundResultDisplay) {
+            roundResultDisplay.textContent = `🎉 Congrats. The Hokage wants to congratulate you, and invite you to ramen, dattebayo!`;
+        }
     } else if (computerScore === winningScore) {
-        roundResultDisplay.textContent = `💀 The computer reached 5 points first. Defeat! Time to train harder at the waterfall!`;
+        if (roundResultDisplay) {
+            roundResultDisplay.textContent = `🐸🦊 Your Next Door Sparring Partner That Always Comes Back Asking For More reached 5 points first! Defeat! Time to head to Mount Myoboku and the Falls of Truth to master Sage Mode—and grab a massive bowl of ramen at Ichiraku for Kurama to nap through!`;
+        }
     }
 }
 
@@ -85,14 +108,6 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
-rockBtn.addEventListener("click", () => {
-    playRound("rock");
-});
-
-paperBtn.addEventListener("click", () => {
-    playRound("paper");
-});
-
-scissorsBtn.addEventListener("click", () => {
-    playRound("scissors");
-});
+if (rockBtn) rockBtn.addEventListener("click", () => playRound("rock"));
+if (paperBtn) paperBtn.addEventListener("click", () => playRound("paper"));
+if (scissorsBtn) scissorsBtn.addEventListener("click", () => playRound("scissors"));

@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors - Shinobi Edition</title>
-  <link rel="stylesheet" href="style.css"> <!-- Optional for styling later -->
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors: Road to Ninja</title>
+    <!-- CSS stylesheet linked here -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Rock Paper Scissors: Shinobi Edition</h1>
-  
-  <!-- Buttons for Player Choices -->
-  <div id="button-container">
-    <button id="rock">Rock (Rokku)</button>
-    <button id="paper">Paper (Kami)</button>
-    <button id="scissors">Scissors (Hasami)</button>
-  </div>
+    <!-- Background Music (Invisible Player) -->
+    <audio id="bgm" src="bgm.mp3" loop></audio>
+    <div class="game-container">
+        <h1>🥷 Rock Paper Scissors: Shinobi Edition: Road to Ninja 🤌</h1>
+        
+        <!-- Action Buttons -->
+        <div class="move-selection">
+            <button id="rock">🪨 Rock (Rokku)</button>
+            <button id="paper">📜 Paper (Kami)</button>
+            <button id="scissors">✂️ Scissors (Hasami)</button>
+        </div>
 
-  <!-- Scoreboard -->
-  <div id="scoreboard">
-    <p>Player: <span id="human-score">0</span></p>
-    <p>Computer: <span id="computer-score">0</span></p>
-  </div>
+        <!-- Battle Cards Arena -->
+        <div class="battle-arena">
+            <div class="choice-card">
+                <h3>Shinobi (You)</h3>
+                <p id="player-choice-display">—</p>
+            </div>
+            <div class="vs">VS</div>
+            <div class="choice-card">
+                <h3>Your Next Door Sparring Partner That Always Comes Back Asking For More</h3>
+                <p id="computer-choice-display">—</p>
+            </div>
+        </div>
 
-  <!-- Results and Narration Display -->
-  <div id="results-container">
-    <p id="round-result">Make your choice to begin the battle, dattebayo!</p>
-  </div>
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+            <div class="score">Player: <span id="human-score">0</span></div>
+            <div class="score">Computer: <span id="computer-score">0</span></div>
+        </div>
+
+        <!-- Dialogue / Results Box -->
+        <div class="dialogue-box">
+            <p id="round-result">Choose your Ninpo technique to begin the duel!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

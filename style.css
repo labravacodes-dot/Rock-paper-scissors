@@ -1,0 +1,156 @@
+/* General Reset & Page Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* Dark fallback color to prevent white screen if image is loading/missing */
+    background-color: #0d0d0f;
+    background-image: url('shinobi.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Container Box with dark glassmorphism transparency */
+.game-container {
+    background-color: rgba(26, 26, 30, 0.85); /* Dark semi-transparent background */
+    backdrop-filter: blur(8px);                 /* Frosted glass blur effect */
+    border: 2px solid rgba(255, 71, 87, 0.5);   /* Red Genjutsu glow border */
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.25);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #2ed573;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(46, 213, 115, 0.4);
+}
+
+/* Action Buttons */
+.move-selection {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: rgba(34, 34, 40, 0.9);
+    border: 1.5px solid #8854d0;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #8854d0;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(136, 84, 208, 0.5);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Battle Arena Box */
+.battle-arena {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(18, 18, 21, 0.85);
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+/* Battle Cards */
+.choice-card {
+    flex: 1;
+    background-color: rgba(26, 26, 32, 0.9);
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Extra flex space for rival's title */
+.battle-arena .choice-card:last-child {
+    flex: 1.6;
+}
+
+.choice-card h3 {
+    font-size: 0.85rem;
+    color: #b0b0c0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.choice-card p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff78ae;
+    margin-top: 6px;
+}
+
+.vs {
+    font-weight: bold;
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #f1c40f;
+    margin-bottom: 20px;
+}
+
+/* Dialogue Box */
+.dialogue-box {
+    background-color: rgba(18, 18, 21, 0.85);
+    border-left: 4px solid #2ed573;
+    padding: 20px;
+    border-radius: 6px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogue-box p {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
