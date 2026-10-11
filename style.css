@@ -154,3 +154,20 @@ button:disabled {
     line-height: 1.5;
     color: #e0e0e0;
 }
+.music-toggle {
+    background-color: #2a2a3b;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+.music-toggle:hover {
+    background-color: #00ffcc;
+    color: #1a1a2e;
+    box-shadow: 0 0 10px #00ffcc;
+}
