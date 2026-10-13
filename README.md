@@ -1,4 +1,4 @@
-# 🥷 Rock Paper Scissors: Shinobi Edition - Road to Ninja 🤌
+# 1. 🥷 Rock Paper Scissors: Shinobi Edition - Road to Ninja 🤌
 
 An immersive, anime-themed Rock Paper Scissors game built with vanilla JavaScript, HTML5, and CSS3, featuring a custom shinobi spin, Genjutsu visuals, dynamic audio controls, and hand-sign jutsu mechanics.
 
@@ -6,7 +6,7 @@ An immersive, anime-themed Rock Paper Scissors game built with vanilla JavaScrip
 
 ---
 
-## 📜 Origin Story: From Generic Code to a Shinobi Vision
+## 2.📜 Origin Story: From Generic Code to a Shinobi Vision
 
 This project originally began as part of the standard **Rock Paper Scissors** assignment from **The Odin Project**. However, during Step 4, I didn't want to follow a rigid, soulless template. I went strictly by my feeling: because of the nature of the game, Naruto was the most fitting theme. 
 It had to be Naruto, because the nature of the hand signs fit with this game, and it felt right, and when I had this epiphany everything clicked for me, and that it had to be like this, when I had this vision.
@@ -17,7 +17,7 @@ What started as basic console logging evolved into a fully realized interactive 
 
 ---
 
-## 🌟 Project Overview & Features
+## 3.🌟 Project Overview & Features
 
 - **The 5-Point Core Loop**: A modified scoring system where the first player to reach 5 points triggers unique anime-themed end-game dialogues.
 - **Lore-Based Victory Conditions**: 
@@ -30,7 +30,7 @@ What started as basic console logging evolved into a fully realized interactive 
 
 ---
 
-## 🛠️ Built With
+## 4.🛠️ Built With
 
 - **JavaScript (ES6)**: Game state management, score logic, DOM manipulation, syntax error debugging, and audio event listeners.
 - **HTML5**: Game structure and media elements.
@@ -39,7 +39,7 @@ What started as basic console logging evolved into a fully realized interactive 
 
 ---
 
-## 💡 What I Learned & Mastered
+## 5.💡 What I Learned & Mastered
 
 - **Logic & Conditionals**: Deepened my understanding of game state control, scoping, and handling user inputs via event listeners.
 - **DOM Manipulation**: Learned how to dynamically sync JavaScript logic with HTML layout elements for a seamless user interface.
@@ -47,7 +47,15 @@ What started as basic console logging evolved into a fully realized interactive 
 - **Debugging Real Errors**: Grew comfortable reading browser console errors (like resolving duplicate `const` declarations) to keep code functional.
 - **Version Control & Deployment**: Successfully navigated Git authentication loops, SSH setup, and pushed a production-ready application live.
 --
-## 🎵 Credits & Assets
+##6. 🎵 Credits & Assets
 
 - **Background Music ("SIGN")**: Originally performed by **FLOW** (Naruto Shippuden Opening 6  SIGN). Used under artistic appreciation for the shinobi universe. Please keep in mind, that this project technically falls under the category of fanart. 
 - **Visuals & Background Art**: The Genjutsu crimson moon background (`shinobi.jpg`) is currently an AI-generated placeholder to establish the atmospheric vision of the game. It serves as a visual placeholder while I work on creating and replacing it with my own custom-drawn illustrations in a future update!
+
+7. 🌍 Internationalization (i18n) Engine & Global Reach
+
+    Zero-Dependency Polyglot Support: Built a custom JavaScript dictionary supporting 7 languages (English, Spanish, Russian, Japanese, Korean, Chinese, and German) so players across the globe can experience the game in their native tongue.
+
+    Inspirational Discovery: Inspired by inspecting the inner code architecture of Learn Git Branching, I wanted to bring that same cross-cultural accessibility directly into a vanilla JavaScript UI.
+
+    Terminal-Themed Language Bar: Implemented a responsive command-line style switcher ($ set-lang:) featuring glowing neon hover effects and persistent local storage saving (localStorage) so a player's language choice is remembered across sessions.

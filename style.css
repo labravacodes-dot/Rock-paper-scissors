@@ -171,3 +171,55 @@ button:disabled {
     color: #1a1a2e;
     box-shadow: 0 0 10px #00ffcc;
 }
+/* ==========================================
+   Terminal Language Bar & Glowing Buttons
+   ========================================== */
+
+.terminal-lang-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin: 20px auto;
+    width: fit-content;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.prompt-symbol {
+    color: #00ff66;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.terminal-lang-bar button {
+    background: #161b22;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Glowing Neon Hover Effect */
+.terminal-lang-bar button:hover {
+    background: #0d1117;
+    color: #00ff66;
+    border-color: #00ff66;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.5), inset 0 0 5px rgba(0, 255, 102, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Active or Selected Language State */
+.terminal-lang-bar button:active {
+    background: #00ff66;
+    color: #0d1117;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.8);
+}
