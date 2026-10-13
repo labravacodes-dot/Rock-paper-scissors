@@ -11,6 +11,19 @@
     <!-- Background Music (Invisible Player) -->
     <audio id="bgm" src="bgm.mp3" loop></audio>
     <div class="game-container">
+        
+        <!-- Terminal Language Selector Bar -->
+        <div class="terminal-lang-bar">
+          <span class="prompt-symbol">$ set-lang:</span>
+          <button onclick="changeLanguage('en')">EN</button>
+          <button onclick="changeLanguage('es')">ES</button>
+          <button onclick="changeLanguage('ru')">RU</button>
+          <button onclick="changeLanguage('ja')">JA</button>
+          <button onclick="changeLanguage('ko')">KO</button>
+          <button onclick="changeLanguage('zh')">ZH</button>
+          <button onclick="changeLanguage('de')">DE</button>
+        </div>
+
         <!-- Music Toggle Button placed right here! -->
         <button id="music-btn" class="music-toggle">🎵 Music playing</button>
 
