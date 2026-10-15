@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Rock Paper Scissors: Road to Ninja</title>
     <!-- CSS stylesheet linked here -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Music (Invisible Player) -->
-    <audio id="bgm" src="bgm.mp3" loop></audio>
+
+    <!-- 🥷 Centered Game Container -->
     <div class="game-container">
         
         <!-- Terminal Language Selector Bar -->
@@ -23,9 +24,6 @@
           <button onclick="changeLanguage('zh')">ZH</button>
           <button onclick="changeLanguage('de')">DE</button>
         </div>
-
-        <!-- Music Toggle Button placed right here! -->
-        <button id="music-btn" class="music-toggle">🎵 Music playing</button>
 
         <h1>🥷 Rock Paper Scissors: Shinobi Edition: Road to Ninja 🤌</h1>
         
@@ -59,6 +57,23 @@
         <div class="dialogue-box">
             <p id="round-result">Choose your Ninpo technique to begin the duel!</p>
         </div>
+    </div>
+
+    <!-- 🎵 Shinobi Music Scroll Widget placed safely at the bottom -->
+    <div class="ninja-scroll-container">
+      <div class="scroll-end scroll-left"></div>
+      <div class="scroll-body">
+        <iframe 
+          class="scroll-iframe" 
+          src="https://www.youtube.com/embed/qpi9YXaChHI?si=HDwd8WLBNyF0XSkn" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="scroll-end scroll-right"></div>
     </div>
 
     <script src="script.js"></script>
